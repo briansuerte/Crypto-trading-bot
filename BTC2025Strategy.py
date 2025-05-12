@@ -1,3 +1,7 @@
+from freqtrade.strategy import IStrategy
+from pandas import DataFrame
+import talib.abstract as ta
+
 class BTC2025Strategy(IStrategy):
     timeframe = '4h'
     stoploss = -0.1
