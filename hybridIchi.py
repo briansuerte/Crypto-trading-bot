@@ -24,9 +24,9 @@ class HybridIchi(IStrategy):
     stoploss = -0.275
 
     trailing_stop = False
-    use_sell_signal = True
-    sell_profit_only = False
-    ignore_roi_if_buy_signal = False
+    use_exit_signal = True
+    exit_profit_only = False
+    ignore_roi_if_entry_signal = False
 
     # Buy hyperspace parameters (you can tune these)
     buy_params = {
