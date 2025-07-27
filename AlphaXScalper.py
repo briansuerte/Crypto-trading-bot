@@ -1,17 +1,14 @@
-from freqtrade.strategy import IStrategy, merge_informative_pair
+from freqtrade.strategy import IStrategy
 from pandas import DataFrame
 import talib.abstract as ta
-import numpy as np
 
 class AlphaXScalper(IStrategy):
     INTERFACE_VERSION = 3
 
-    # Strategy parameters
     timeframe = '5m'
     startup_candle_count: int = 50
     can_short: bool = False
 
-    # Risk management
     minimal_roi = {
         "0": 0.04,
         "20": 0.02,
@@ -35,9 +32,7 @@ class AlphaXScalper(IStrategy):
         df['ema_fast'] = ta.EMA(df['close'], timeperiod=5)
         df['ema_slow'] = ta.EMA(df['close'], timeperiod=20)
         df['adx'] = ta.ADX(df)
-
-        df['price_change'] = df['close'].pct_change(3) * 100  # momentum burst
-
+        df['price_change'] = df['close'].pct_change(3) * 100
         return df
 
     def populate_buy_trend(self, df: DataFrame, metadata: dict) -> DataFrame:
