@@ -15,11 +15,11 @@ class AlphaXScalper(IStrategy):
         "40": 0
     }
 
-    stoploss = -0.15
+    stoploss = -0.06
     trailing_stop = True
     trailing_only_offset_is_reached = True
-    trailing_stop_positive = 0.02
-    trailing_stop_positive_offset = 0.03
+    trailing_stop_positive = 0.015
+    trailing_stop_positive_offset = 0.02
 
     use_custom_stoploss = False
     process_only_new_candles = True
